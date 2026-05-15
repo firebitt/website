@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Firebitt - Coming Soon</title>
     <meta name="description" content="Firebitt is coming soon.">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
     <style>
       :root {
         color-scheme: dark;
@@ -28,17 +30,23 @@
       }
 
       body {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         min-height: 100vh;
-        place-items: center;
-        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        overflow-y: auto;
         background:
+          linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.54) 45%, rgba(5, 5, 5, 0.82)),
+          linear-gradient(to bottom, rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.7) 54%, rgba(5, 5, 5, 0.92)),
           linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
           radial-gradient(circle at 50% 32%, rgba(255, 157, 24, 0.18), transparent 22rem),
           radial-gradient(circle at 50% 66%, rgba(255, 216, 61, 0.1), transparent 26rem),
-          linear-gradient(145deg, #191919 0%, var(--bg) 48%, #101010 100%);
-        background-size: 58px 58px, 58px 58px, auto, auto, auto;
+          url("assets/firebitt-background.png") center / cover fixed,
+          #050505;
+        background-size: auto, auto, 58px 58px, 58px 58px, auto, auto, cover, auto;
         color: var(--text);
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
@@ -53,6 +61,8 @@
 
       body::before {
         background:
+          radial-gradient(ellipse at 50% 88%, rgba(255, 159, 24, 0.18), transparent 26rem),
+          repeating-linear-gradient(168deg, rgba(255, 216, 61, 0.06) 0 3px, transparent 3px 18px),
           linear-gradient(115deg, transparent 0 44%, rgba(255, 216, 61, 0.12) 44.2% 44.4%, transparent 44.7%),
           linear-gradient(115deg, transparent 0 57%, rgba(255, 77, 16, 0.1) 57.2% 57.35%, transparent 57.65%);
         mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
@@ -70,17 +80,16 @@
         z-index: 1;
         width: min(92vw, 760px);
         justify-items: center;
-        gap: clamp(1.25rem, 3vw, 2rem);
-        padding: clamp(1.5rem, 5vw, 4.5rem);
+        gap: clamp(1rem, 2.6vw, 1.6rem);
+        padding: clamp(1rem, 3.6vw, 2.8rem) clamp(1.5rem, 5vw, 4.5rem) 1.25rem;
         text-align: center;
       }
 
       footer {
-        position: fixed;
+        position: relative;
         z-index: 1;
-        right: 1rem;
-        bottom: 1rem;
-        left: 1rem;
+        width: min(92vw, 760px);
+        margin: 0 auto 1.25rem;
         color: rgba(255, 255, 255, 0.58);
         font-size: 0.76rem;
         font-weight: 700;
@@ -91,7 +100,7 @@
       }
 
       .logo {
-        width: min(64vw, 360px);
+        width: min(54vw, 280px);
         height: auto;
         border-radius: 50%;
         box-shadow:
@@ -101,11 +110,72 @@
           0 0 4.5rem rgba(255, 111, 16, 0.18);
       }
 
+      .descriptor {
+        max-width: min(92vw, 760px);
+        color: var(--text);
+        font-size: clamp(0.9rem, 2.2vw, 1.4rem);
+        font-style: italic;
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-shadow: 0 0.08em 0 #000, 0 0 1.2rem rgba(255, 216, 61, 0.18);
+      }
+
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        width: min(100%, 560px);
+        margin-top: -0.2rem;
+      }
+
+      .contact-row a {
+        flex: 1 1 13rem;
+        min-width: min(100%, 13rem);
+        padding: 0.72rem 0.9rem;
+        border: 1px solid rgba(255, 216, 61, 0.72);
+        background: rgba(5, 5, 5, 0.72);
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .local-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        max-width: min(92vw, 360px);
+        padding: 0.55rem 0.8rem;
+        border: 1px solid rgba(255, 216, 61, 0.24);
+        background: rgba(5, 5, 5, 0.58);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.25;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .local-badge img {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 0.35rem;
+        object-fit: cover;
+        mix-blend-mode: screen;
+        opacity: 0.82;
+      }
+
       h1 {
         margin: 0;
         background:
-          linear-gradient(rgba(255, 216, 61, 0.22), rgba(255, 77, 16, 0.18)),
-          url("assets/firebitt-field.jpg") center 52% / cover;
+          linear-gradient(180deg, #fff7a8 0%, var(--gold) 34%, var(--amber) 62%, var(--ember) 100%);
         color: transparent;
         font-size: clamp(3.1rem, 10vw, 7.4rem);
         font-weight: 950;
@@ -114,42 +184,16 @@
         text-transform: uppercase;
         -webkit-background-clip: text;
         background-clip: text;
-        -webkit-text-stroke: clamp(1px, 0.1vw, 2px) rgba(255, 255, 255, 0.84);
+        -webkit-text-stroke: clamp(1px, 0.1vw, 2px) rgba(0, 0, 0, 0.86);
         filter:
-          drop-shadow(0 0.075em 0 #000)
-          drop-shadow(0 0 1.7rem rgba(255, 77, 16, 0.28));
+          drop-shadow(0 0.07em 0 #000)
+          drop-shadow(0 0 1.6rem rgba(255, 90, 16, 0.34))
+          drop-shadow(0 0 2.5rem rgba(255, 216, 61, 0.16));
       }
 
       h1::selection {
         background: var(--gold);
         color: #080808;
-      }
-
-      .status {
-        display: inline-grid;
-        grid-auto-flow: column;
-        align-items: center;
-        gap: 0.65rem;
-        min-height: 2.25rem;
-        padding: 0.45rem 0.95rem;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(7, 7, 7, 0.68);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      .status::before {
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 999px;
-        background: var(--gold);
-        box-shadow: 0 0 1.2rem var(--amber);
-        content: "";
       }
 
       .stripe {
@@ -165,6 +209,13 @@
         box-shadow:
           0 0 0 1px rgba(255, 255, 255, 0.06),
           0 0 1.7rem rgba(255, 216, 61, 0.2);
+        animation: progressShift 1.4s linear infinite;
+      }
+
+      .stripe.top {
+        width: min(64vw, 380px);
+        height: 8px;
+        margin-bottom: -0.35rem;
       }
 
       .launch-line {
@@ -173,20 +224,26 @@
         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
       }
 
+      @keyframes progressShift {
+        to {
+          background-position: 42px 0;
+        }
+      }
+
       @media (max-width: 520px) {
         body {
           overflow: auto;
         }
 
         main {
-          min-height: 100vh;
+          min-height: auto;
           align-content: center;
           gap: 1rem;
-          padding-bottom: 5rem;
+          padding-bottom: 1rem;
         }
 
         .logo {
-          width: min(72vw, 280px);
+          width: min(72vw, 240px);
         }
 
         h1 {
@@ -195,17 +252,27 @@
 
         footer {
           font-size: 0.68rem;
+          margin-bottom: 1rem;
         }
       }
     </style>
   </head>
   <body>
     <main aria-label="Firebitt coming soon">
-      <div class="status">Launch sequence active</div>
       <img class="logo" src="assets/firebitt-logo.png" alt="Firebitt">
+      <div class="descriptor">Utility Contractor / Drilling / Rock Drilling / Trenching</div>
       <div class="launch-line" aria-hidden="true"></div>
+      <div class="stripe top" aria-hidden="true"></div>
       <h1>Coming Soon!</h1>
       <div class="stripe" aria-hidden="true"></div>
+      <div class="local-badge">
+        <img src="assets/charlotte-local.png" alt="Charlotte North Carolina">
+        <span>Local Charlotte, North Carolina company</span>
+      </div>
+      <div class="contact-row" aria-label="Firebitt contact information">
+        <a href="tel:8006782648">800 678 2648</a>
+        <a href="mailto:INFO@Firebitt.com">INFO@Firebitt.com</a>
+      </div>
     </main>
     <footer>© 2026 Firebitt LLC. All rights reserved.</footer>
   </body>
