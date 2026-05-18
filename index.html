@@ -3,40 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Firebitt - Coming Soon</title>
-    <meta name="description" content="Firebitt is coming soon.">
+    <title>Firebitt LLC | Trenching & Trenchless HDD Services</title>
+    <meta name="description" content="Firebitt LLC provides trenching, trenchless HDD, drilling, and underground construction support in the Greater Charlotte Metro area and Southeastern United States.">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
     <style>
       :root {
         color-scheme: dark;
-        --bg: #050505;
-        --text: #fff;
-        --muted: #a8a8a8;
-        --gold: #ffd83d;
-        --amber: #ff9d18;
-        --ember: #ff4d10;
-        --line: rgba(255, 255, 255, 0.12);
+        --black: #050505;
+        --panel: #101010;
+        --panel-2: #161616;
+        --yellow: #ffd400;
+        --amber: #ff9f16;
+        --text: #f7f7f7;
+        --muted: #b9b9b9;
+        --line: rgba(255, 255, 255, 0.14);
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html,
-      body {
-        min-height: 100%;
-        margin: 0;
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        align-items: center;
-        justify-content: center;
+        margin: 0;
         overflow-x: hidden;
-        overflow-y: auto;
         background:
           linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.54) 45%, rgba(5, 5, 5, 0.82)),
           linear-gradient(to bottom, rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.7) 54%, rgba(5, 5, 5, 0.92)),
@@ -51,63 +45,245 @@
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      body::before,
-      body::after {
+      body::before {
         position: fixed;
         inset: 0;
+        z-index: -1;
         pointer-events: none;
-        content: "";
-      }
-
-      body::before {
         background:
           radial-gradient(ellipse at 50% 88%, rgba(255, 159, 24, 0.18), transparent 26rem),
           repeating-linear-gradient(168deg, rgba(255, 216, 61, 0.06) 0 3px, transparent 3px 18px),
           linear-gradient(115deg, transparent 0 44%, rgba(255, 216, 61, 0.12) 44.2% 44.4%, transparent 44.7%),
           linear-gradient(115deg, transparent 0 57%, rgba(255, 77, 16, 0.1) 57.2% 57.35%, transparent 57.65%);
+        content: "";
         mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
       }
 
       body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
         background:
           radial-gradient(circle at center, transparent 0 32%, rgba(0, 0, 0, 0.38) 70%),
           linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.46));
+        content: "";
       }
 
-      main {
-        display: grid;
-        position: relative;
-        z-index: 1;
-        width: min(92vw, 760px);
-        justify-items: center;
-        gap: clamp(1rem, 2.6vw, 1.6rem);
-        padding: clamp(1rem, 3.6vw, 2.8rem) clamp(1.5rem, 5vw, 4.5rem) 1.25rem;
-        text-align: center;
+      img {
+        display: block;
+        max-width: 100%;
       }
 
-      footer {
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      p,
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(12, 12, 10, 0.98), rgba(3, 3, 3, 0.94)),
+          #030303;
+        backdrop-filter: blur(18px);
+        box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.42);
+      }
+
+      .nav {
+        display: flex;
         position: relative;
-        z-index: 1;
-        width: min(92vw, 760px);
-        margin: 0 auto 1.25rem;
-        color: rgba(255, 255, 255, 0.58);
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0;
-        line-height: 1.4;
-        text-align: center;
+        width: min(1180px, calc(100% - 2rem));
+        min-height: 78px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        position: relative;
+        align-items: center;
+        font-weight: 950;
         text-transform: uppercase;
       }
 
-      .logo {
-        width: min(54vw, 280px);
+      .brand::before {
+        position: absolute;
+        inset: 9% 4%;
+        z-index: -1;
+        border-radius: 12px;
+        background:
+          radial-gradient(circle at 18% 52%, rgba(255, 159, 22, 0.18), transparent 32%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.72));
+        filter: blur(14px);
+        content: "";
+      }
+
+      .brand img {
+        width: clamp(210px, 28vw, 360px);
         height: auto;
-        border-radius: 50%;
-        box-shadow:
-          0 0 0 1px rgba(255, 255, 255, 0.06),
-          0 0 0 10px rgba(255, 255, 255, 0.018),
-          0 2rem 5rem rgba(0, 0, 0, 0.72),
-          0 0 4.5rem rgba(255, 111, 16, 0.18);
+        border-radius: 8px;
+        filter:
+          drop-shadow(0 1rem 1.2rem rgba(0, 0, 0, 0.68))
+          drop-shadow(0 0 0.75rem rgba(255, 212, 0, 0.12));
+        mix-blend-mode: screen;
+        transform: perspective(720px) rotateX(1deg);
+      }
+
+      .brand span {
+        font-size: clamp(1rem, 2vw, 1.35rem);
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        display: none;
+        width: min(100%, 420px);
+        border: 1px solid rgba(255, 212, 0, 0.24);
+        background: rgba(255, 212, 0, 0.96);
+        color: #080808;
+        box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.45);
+        text-transform: uppercase;
+      }
+
+      .nav-links.is-open {
+        display: grid;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1.05rem 1.25rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+        color: #080808;
+        font-size: 1rem;
+        font-weight: 950;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: 0;
+      }
+
+      .nav-links a:hover {
+        background: #080808;
+        color: var(--yellow);
+      }
+
+      .phone-link {
+        color: #080808;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 30;
+        width: 3.15rem;
+        height: 3.15rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 2px solid #050505;
+        background: var(--yellow);
+        color: #050505;
+        box-shadow: 0 0 0 1px rgba(255, 212, 0, 0.35), 0 0 1.5rem rgba(255, 212, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        display: grid;
+        width: 1.55rem;
+        gap: 0.32rem;
+      }
+
+      .menu-toggle span::before,
+      .menu-toggle span::after,
+      .menu-toggle i {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: currentColor;
+        content: "";
+      }
+
+      .menu-toggle i {
+        font-style: normal;
+      }
+
+      .hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.54) 45%, rgba(5, 5, 5, 0.82)),
+          linear-gradient(to bottom, rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.7) 54%, rgba(5, 5, 5, 0.92)),
+          linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          radial-gradient(circle at 50% 32%, rgba(255, 157, 24, 0.18), transparent 22rem),
+          radial-gradient(circle at 50% 66%, rgba(255, 216, 61, 0.1), transparent 26rem),
+          url("assets/firebitt-background.png") center / cover;
+        background-size: auto, auto, 58px 58px, 58px 58px, auto, auto, cover;
+        content: "";
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(90deg, rgba(5, 5, 5, 0.78) 0%, rgba(5, 5, 5, 0.48) 46%, rgba(5, 5, 5, 0.18) 100%),
+          linear-gradient(to bottom, rgba(5, 5, 5, 0.1), rgba(5, 5, 5, 0.72));
+        content: "";
+      }
+
+      .hero-inner {
+        display: grid;
+        width: min(1180px, calc(100% - 2rem));
+        min-width: 0;
+        min-height: calc(100vh - 78px);
+        margin: 0 auto;
+        align-content: center;
+        gap: 1.5rem;
+        padding: 5rem 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        width: fit-content;
+        max-width: 100%;
+        align-items: center;
+        gap: 0.65rem;
+        color: var(--yellow);
+        font-size: 0.76rem;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        flex: 0 0 auto;
+        width: 2.3rem;
+        height: 3px;
+        background: var(--yellow);
+        content: "";
       }
 
       .descriptor {
@@ -173,107 +349,684 @@
       }
 
       h1 {
-        margin: 0;
-        background:
-          linear-gradient(180deg, #fff7a8 0%, var(--gold) 34%, var(--amber) 62%, var(--ember) 100%);
-        color: transparent;
-        font-size: clamp(3.1rem, 10vw, 7.4rem);
+        max-width: 920px;
+        min-width: 0;
+        font-family: "Arial Black", "Aptos Black", "Inter", system-ui, sans-serif;
+        font-size: clamp(3.2rem, 7.6vw, 7.2rem);
         font-weight: 950;
         letter-spacing: 0;
-        line-height: 0.82;
+        line-height: 0.92;
         text-transform: uppercase;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-stroke: clamp(1px, 0.1vw, 2px) rgba(0, 0, 0, 0.86);
-        filter:
-          drop-shadow(0 0.07em 0 #000)
-          drop-shadow(0 0 1.6rem rgba(255, 90, 16, 0.34))
-          drop-shadow(0 0 2.5rem rgba(255, 216, 61, 0.16));
+        word-spacing: 0.08em;
       }
 
-      h1::selection {
-        background: var(--gold);
+      .hero-local-badge {
+        display: inline-flex;
+        width: fit-content;
+        max-width: min(100%, 360px);
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.55rem 0.78rem;
+        border: 1px solid rgba(255, 212, 0, 0.22);
+        background: rgba(5, 5, 5, 0.58);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 0.72rem;
+        font-weight: 900;
+        line-height: 1.25;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-local-badge img {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 0.35rem;
+        object-fit: cover;
+        mix-blend-mode: screen;
+        opacity: 0.82;
+      }
+
+      .hero-copy {
+        max-width: min(660px, 100%);
+        min-width: 0;
+        color: #e4e4e4;
+        font-size: clamp(1rem, 1.8vw, 1.22rem);
+        line-height: 1.7;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 3.2rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem 1.15rem;
+        border: 1px solid var(--yellow);
+        background: var(--yellow);
         color: #080808;
+        font-size: 0.82rem;
+        font-weight: 950;
+        text-align: center;
+        text-transform: uppercase;
       }
 
-      .stripe {
-        width: min(72vw, 480px);
-        height: 10px;
-        border-radius: 999px;
+      .button.secondary {
+        background: rgba(5, 5, 5, 0.58);
+        color: var(--text);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(5, 5, 5, 0.78);
+      }
+
+      .stat {
+        padding: 1.55rem;
+        border-right: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-right: 0;
+      }
+
+      .stat strong {
+        display: block;
+        color: var(--yellow);
+        font-size: clamp(1.6rem, 4vw, 3rem);
+        font-weight: 950;
+        line-height: 1;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 0.45rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      section {
+        padding: clamp(4rem, 8vw, 7rem) 0;
+      }
+
+      .wrap {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: grid;
+        max-width: 760px;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        font-family: "Arial Black", "Aptos Black", "Inter", system-ui, sans-serif;
+        font-size: clamp(2.15rem, 5vw, 4.4rem);
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 0.92;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: 1.28rem;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .section-head p,
+      .copy p,
+      .card p {
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+
+      .card {
+        display: grid;
+        min-height: 250px;
+        align-content: space-between;
+        gap: 1.5rem;
+        padding: 1.35rem;
         background:
-          repeating-linear-gradient(
-            135deg,
-            var(--gold) 0 24px,
-            #050505 24px 42px
-          );
-        box-shadow:
-          0 0 0 1px rgba(255, 255, 255, 0.06),
-          0 0 1.7rem rgba(255, 216, 61, 0.2);
-        animation: progressShift 1.4s linear infinite;
+          linear-gradient(145deg, rgba(255, 212, 0, 0.09), transparent 44%),
+          var(--panel);
       }
 
-      .stripe.top {
-        width: min(64vw, 380px);
-        height: 8px;
-        margin-bottom: -0.35rem;
+      .card .num {
+        color: var(--yellow);
+        font-size: 0.82rem;
+        font-weight: 950;
       }
 
-      .launch-line {
-        width: min(74vw, 520px);
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        gap: clamp(2rem, 6vw, 5rem);
+        align-items: center;
       }
 
-      @keyframes progressShift {
-        to {
-          background-position: 42px 0;
+      .media {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #111;
+      }
+
+      .media::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 10px;
+        background: repeating-linear-gradient(135deg, var(--yellow) 0 22px, #050505 22px 38px);
+        content: "";
+      }
+
+      .media img {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+      }
+
+      .copy {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .list {
+        display: grid;
+        gap: 0.8rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .list li {
+        display: grid;
+        grid-template-columns: 1.05rem 1fr;
+        gap: 0.75rem;
+        color: #e7e7e7;
+        line-height: 1.58;
+      }
+
+      .list li::before {
+        width: 0.68rem;
+        height: 0.68rem;
+        margin-top: 0.42rem;
+        background: var(--yellow);
+        clip-path: polygon(14% 48%, 38% 72%, 86% 18%, 100% 32%, 38% 96%, 0 58%);
+        content: "";
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr 0.75fr;
+        grid-auto-rows: 240px;
+        gap: 1rem;
+      }
+
+      .gallery figure {
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        border: 1px solid var(--line);
+        background: #111;
+      }
+
+      .gallery figure:first-child {
+        grid-row: span 2;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.92) contrast(1.05);
+      }
+
+      .gallery figcaption {
+        position: absolute;
+        right: 0.9rem;
+        bottom: 0.9rem;
+        left: 0.9rem;
+        padding: 0.85rem;
+        border-left: 4px solid var(--yellow);
+        background: rgba(5, 5, 5, 0.78);
+        color: var(--text);
+        font-size: 0.82rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .contact {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(255, 212, 0, 0.12), transparent 35%),
+          rgba(14, 14, 14, 0.92);
+      }
+
+      .contact-panel {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      footer {
+        padding: 2rem 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .footer-inner {
+        display: flex;
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .yellow {
+        color: var(--yellow);
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          min-height: 108px;
+          padding: 0.6rem 0;
+          align-items: center;
+          flex-direction: row;
         }
-      }
 
-      @media (max-width: 520px) {
-        body {
-          overflow: auto;
+        .nav-links {
+          left: 0;
+          width: min(100%, 520px);
+          margin-left: auto;
         }
 
-        main {
+        .hero-inner {
           min-height: auto;
-          align-content: center;
-          gap: 1rem;
-          padding-bottom: 1rem;
+          padding: 5rem 0 3.5rem;
         }
 
-        .logo {
-          width: min(72vw, 240px);
+        .stats,
+        .service-grid,
+        .split,
+        .contact-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .stat {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .stat:last-child {
+          border-bottom: 0;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 220px;
+        }
+
+        .gallery figure:first-child {
+          grid-column: 1 / -1;
+          grid-row: auto;
+        }
+
+        .media img {
+          min-height: 310px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .brand img {
+          width: min(58vw, 220px);
+          height: auto;
+        }
+
+        .brand span {
+          display: none;
+        }
+
+        .menu-toggle {
+          margin-left: auto;
+        }
+
+        .nav-links {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .phone-link {
+          width: 100%;
+          text-align: left;
         }
 
         h1 {
-          font-size: clamp(3rem, 18vw, 4.6rem);
+          font-size: clamp(2.85rem, 14vw, 4rem);
+          line-height: 0.96;
+          word-spacing: 0.04em;
         }
 
-        footer {
+        .eyebrow {
+          align-items: flex-start;
+          width: 100%;
+          flex-wrap: wrap;
           font-size: 0.68rem;
-          margin-bottom: 1rem;
+          line-height: 1.35;
+        }
+
+        .hero-inner > * {
+          max-width: min(100%, 340px);
+        }
+
+        .hero-copy {
+          font-size: 0.96rem;
+        }
+
+        .hero-local-badge {
+          max-width: min(100%, 340px);
+        }
+
+        .hero-actions,
+        .contact-actions,
+        .footer-inner {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr;
+          grid-auto-rows: 260px;
         }
       }
     </style>
   </head>
   <body>
-    <main aria-label="Firebitt coming soon">
-      <img class="logo" src="assets/firebitt-logo.png" alt="Firebitt">
-      <div class="descriptor">Utility Contractor / Drilling / Rock Drilling / Trenching</div>
-      <div class="launch-line" aria-hidden="true"></div>
-      <div class="stripe top" aria-hidden="true"></div>
-      <h1>Coming Soon!</h1>
-      <div class="stripe" aria-hidden="true"></div>
-      <div class="local-badge">
-        <img src="assets/charlotte-local.png" alt="Charlotte North Carolina">
-        <span>Local Charlotte, North Carolina company</span>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Firebitt LLC home">
+          <img src="assets/firebitt-header-logo.png" alt="Firebitt logo">
+        </a>
+        <div class="nav-links" id="primary-menu">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#safety">Safety</a>
+        </div>
+      </nav>
+    </header>
+    <div class="menu-toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu" style="display:flex;position:fixed;top:16px;right:16px;z-index:9999;width:52px;height:52px;align-items:center;justify-content:center;background:#ffd400;color:#050505;border:2px solid #050505;">
+      <span><i></i></span>
+    </div>
+
+    <main id="top">
+      <section class="hero" aria-label="Firebitt LLC home">
+        <div class="hero-inner">
+          <div class="eyebrow">Trenching / Trenchless HDD / Underground Construction</div>
+          <h1>Rock or dirt,<br>we can<br>do it all.</h1>
+          <p class="hero-copy">
+            Firebitt LLC is headquartered in the Greater Charlotte Metro area
+            and operates throughout the Southeastern United States, supporting
+            underground construction projects with expert precision.
+          </p>
+          <div class="hero-local-badge">
+            <img src="assets/charlotte-local.png" alt="Charlotte North Carolina">
+            <span>Local Charlotte, North Carolina company</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="tel:8006782648">Call 800 678 2648</a>
+            <a class="button secondary" href="mailto:INFO@Firebitt.com">INFO@Firebitt.com</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats" aria-label="Firebitt highlights">
+        <div class="stat">
+          <strong>2011</strong>
+          <span>Inaugural drill shot</span>
+        </div>
+        <div class="stat">
+          <strong>$25M</strong>
+          <span>Contract growth</span>
+        </div>
+        <div class="stat">
+          <strong>WBE</strong>
+          <span>Certified corporation</span>
+        </div>
+        <div class="stat">
+          <strong>100+</strong>
+          <span>Years collective experience</span>
+        </div>
       </div>
-      <div class="contact-row" aria-label="Firebitt contact information">
-        <a href="tel:8006782648">800 678 2648</a>
-        <a href="mailto:INFO@Firebitt.com">INFO@Firebitt.com</a>
-      </div>
+
+      <section id="services">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow">Who We Serve</div>
+            <h2>Built for local contractors, builders, and utility work.</h2>
+            <p>
+              We seek to partner with small to medium sized local contractors
+              involved in communications, electrical, gas, sewer, and water
+              services for residential and commercial builders, HOA's, golf
+              courses, and management companies.
+            </p>
+          </div>
+
+          <div class="service-grid">
+            <article class="card">
+              <span class="num">01</span>
+              <div>
+                <h3>Trenching</h3>
+                <p>Reliable trenching support for residential, commercial, and utility construction projects.</p>
+              </div>
+            </article>
+            <article class="card">
+              <span class="num">02</span>
+              <div>
+                <h3>Trenchless HDD</h3>
+                <p>Horizontal directional drilling services within the Greater Charlotte Metro area in North Carolina.</p>
+              </div>
+            </article>
+            <article class="card">
+              <span class="num">03</span>
+              <div>
+                <h3>Short-Term Builds</h3>
+                <p>Capable support for short-term and one-off builds when projects need focused execution.</p>
+              </div>
+            </article>
+            <article class="card">
+              <span class="num">04</span>
+              <div>
+                <h3>Full Crew Support</h3>
+                <p>From a single trenching technician to a drilling team with more than ten professionals.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="wrap split">
+          <div class="media">
+            <img src="assets/firebitt-collage.png" alt="Firebitt crews and Vermeer equipment">
+          </div>
+          <div class="copy">
+            <div class="eyebrow">About Firebitt</div>
+            <h2>Experience you can build on.</h2>
+            <p>
+              With over a century of collective experience, Firebitt is
+              headquartered in the Greater Charlotte Metro area and operates
+              throughout the Southeastern United States.
+            </p>
+            <p>
+              Our team is proudly recognized as a dependable partner for any
+              type of underground construction project, having completed
+              hundreds of contracts with expert precision.
+            </p>
+            <p>
+              Specializing in all underground infrastructure, including water,
+              irrigation, sewer, gas, electric, fuel supply lines, fiber, and
+              telecommunications.
+            </p>
+            <ul class="list">
+              <li>Vermeer drills, Yanmar excavators, cable plows, and backup support equipment.</li>
+              <li>Turn-key services that bring your design to reality.</li>
+              <li>Greater Charlotte Metro and surrounding area support.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow">Field Work</div>
+            <h2>Equipment, crews, and jobsite execution.</h2>
+            <p>
+              With hundreds of skilled professionals and many Vermeer
+              directional drills, excavators, cable plows, and backup support
+              equipment, Firebitt possesses the team to turn designs into
+              reality.
+            </p>
+          </div>
+
+          <div class="gallery">
+            <figure>
+              <img src="assets/work-truck.jpg" alt="Firebitt truck at jobsite">
+              <figcaption>Utility contractor / drilling / trenching</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/work-drill.jpg" alt="Directional drilling equipment">
+              <figcaption>Directional drilling</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/work-vermeer.jpg" alt="Vermeer equipment">
+              <figcaption>Vermeer equipment</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/work-site.jpg" alt="Excavation and trenching work">
+              <figcaption>Underground construction</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/work-sign.jpg" alt="Firebitt sign lighting">
+              <figcaption>Firebitt field identity</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety">
+        <div class="wrap split">
+          <div class="copy">
+            <div class="eyebrow">Safety & Certification</div>
+            <h2>Executed correctly, the first time, every time.</h2>
+            <p>
+              Our proven safety record reflects our commitment to excellence,
+              ensuring each task is executed correctly, the first time, every
+              time.
+            </p>
+            <p>
+              Since our inaugural drill shot in 2011, FIREBITT LLC has
+              successfully executed numerous government, commercial, and private
+              contracts throughout the USA, ranging from $2,500 to $25 million
+              dollars.
+            </p>
+            <ul class="list">
+              <li>Growing WBE Certified Corporation.</li>
+              <li>Licensed services in Virginia, North Carolina, South Carolina, Georgia, and Louisiana.</li>
+              <li>Safety-focused crews that execute tasks meticulously and comprehensively on the first attempt.</li>
+            </ul>
+          </div>
+          <div class="media">
+            <img src="assets/safety-worker.jpg" alt="Firebitt safety crew member at utility worksite">
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="wrap contact-panel">
+          <div class="section-head">
+            <div class="eyebrow">Contact</div>
+            <h2>Bring your design to reality.</h2>
+            <p>
+              Whether it is a single trenching technician or a large drilling
+              team, Firebitt can help with underground construction work across
+              the Greater Charlotte Metro and surrounding areas.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="button" href="tel:8006782648">800 678 2648</a>
+            <a class="button secondary" href="mailto:INFO@Firebitt.com">INFO@Firebitt.com</a>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer>© 2026 Firebitt LLC. All rights reserved.</footer>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 Firebitt LLC. All rights reserved.</span>
+      </div>
+    </footer>
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const menu = document.querySelector("#primary-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      menuToggle.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          menuToggle.click();
+        }
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+        });
+      });
+    </script>
   </body>
 </html>
