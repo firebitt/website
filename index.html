@@ -286,6 +286,68 @@
         content: "";
       }
 
+      .descriptor {
+        max-width: min(92vw, 760px);
+        color: var(--text);
+        font-size: clamp(0.9rem, 2.2vw, 1.4rem);
+        font-style: italic;
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-shadow: 0 0.08em 0 #000, 0 0 1.2rem rgba(255, 216, 61, 0.18);
+      }
+
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        width: min(100%, 560px);
+        margin-top: -0.2rem;
+      }
+
+      .contact-row a {
+        flex: 1 1 13rem;
+        min-width: min(100%, 13rem);
+        padding: 0.72rem 0.9rem;
+        border: 1px solid rgba(255, 216, 61, 0.72);
+        background: rgba(5, 5, 5, 0.72);
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .local-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        max-width: min(92vw, 360px);
+        padding: 0.55rem 0.8rem;
+        border: 1px solid rgba(255, 216, 61, 0.24);
+        background: rgba(5, 5, 5, 0.58);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1.25;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .local-badge img {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 0.35rem;
+        object-fit: cover;
+        mix-blend-mode: screen;
+        opacity: 0.82;
+      }
+
       h1 {
         max-width: 920px;
         min-width: 0;
