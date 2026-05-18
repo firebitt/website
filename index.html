@@ -32,12 +32,15 @@
         margin: 0;
         overflow-x: hidden;
         background:
-          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-          radial-gradient(circle at 16% 8%, rgba(255, 212, 0, 0.13), transparent 28rem),
-          radial-gradient(circle at 90% 42%, rgba(255, 159, 22, 0.1), transparent 30rem),
-          var(--black);
-        background-size: 56px 56px, 56px 56px, auto, auto, auto;
+          linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.54) 45%, rgba(5, 5, 5, 0.82)),
+          linear-gradient(to bottom, rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.7) 54%, rgba(5, 5, 5, 0.92)),
+          linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          radial-gradient(circle at 50% 32%, rgba(255, 157, 24, 0.18), transparent 22rem),
+          radial-gradient(circle at 50% 66%, rgba(255, 216, 61, 0.1), transparent 26rem),
+          url("assets/firebitt-background.png") center / cover fixed,
+          #050505;
+        background-size: auto, auto, 58px 58px, 58px 58px, auto, auto, cover, auto;
         color: var(--text);
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
@@ -48,8 +51,22 @@
         z-index: -1;
         pointer-events: none;
         background:
-          linear-gradient(118deg, transparent 0 48%, rgba(255, 212, 0, 0.11) 48.1% 48.28%, transparent 48.5%),
-          radial-gradient(circle at center, transparent 0 34%, rgba(0, 0, 0, 0.54) 78%);
+          radial-gradient(ellipse at 50% 88%, rgba(255, 159, 24, 0.18), transparent 26rem),
+          repeating-linear-gradient(168deg, rgba(255, 216, 61, 0.06) 0 3px, transparent 3px 18px),
+          linear-gradient(115deg, transparent 0 44%, rgba(255, 216, 61, 0.12) 44.2% 44.4%, transparent 44.7%),
+          linear-gradient(115deg, transparent 0 57%, rgba(255, 77, 16, 0.1) 57.2% 57.35%, transparent 57.65%);
+        content: "";
+        mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
+      }
+
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at center, transparent 0 32%, rgba(0, 0, 0, 0.38) 70%),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.46));
         content: "";
       }
 
@@ -75,8 +92,11 @@
         top: 0;
         z-index: 20;
         border-bottom: 1px solid var(--line);
-        background: rgba(5, 5, 5, 0.82);
+        background:
+          linear-gradient(180deg, rgba(12, 12, 10, 0.98), rgba(3, 3, 3, 0.94)),
+          #030303;
         backdrop-filter: blur(18px);
+        box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.42);
       }
 
       .nav {
@@ -92,21 +112,37 @@
 
       .brand {
         display: inline-flex;
+        position: relative;
         align-items: center;
-        gap: 0.75rem;
         font-weight: 950;
         text-transform: uppercase;
       }
 
+      .brand::before {
+        position: absolute;
+        inset: 9% 4%;
+        z-index: -1;
+        border-radius: 12px;
+        background:
+          radial-gradient(circle at 18% 52%, rgba(255, 159, 22, 0.18), transparent 32%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.72));
+        filter: blur(14px);
+        content: "";
+      }
+
       .brand img {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        box-shadow: 0 0 2rem rgba(255, 159, 22, 0.18);
+        width: clamp(210px, 28vw, 360px);
+        height: auto;
+        border-radius: 8px;
+        filter:
+          drop-shadow(0 1rem 1.2rem rgba(0, 0, 0, 0.68))
+          drop-shadow(0 0 0.75rem rgba(255, 212, 0, 0.12));
+        mix-blend-mode: screen;
+        transform: perspective(720px) rotateX(1deg);
       }
 
       .brand span {
-        font-size: 1rem;
+        font-size: clamp(1rem, 2vw, 1.35rem);
         letter-spacing: 0;
       }
 
@@ -197,7 +233,15 @@
         position: absolute;
         inset: 0;
         z-index: -2;
-        background: url("assets/work-truck.jpg") center / cover;
+        background:
+          linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.54) 45%, rgba(5, 5, 5, 0.82)),
+          linear-gradient(to bottom, rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.7) 54%, rgba(5, 5, 5, 0.92)),
+          linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          radial-gradient(circle at 50% 32%, rgba(255, 157, 24, 0.18), transparent 22rem),
+          radial-gradient(circle at 50% 66%, rgba(255, 216, 61, 0.1), transparent 26rem),
+          url("assets/firebitt-background.png") center / cover;
+        background-size: auto, auto, 58px 58px, 58px 58px, auto, auto, cover;
         content: "";
       }
 
@@ -206,8 +250,8 @@
         inset: 0;
         z-index: -1;
         background:
-          linear-gradient(90deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.76) 46%, rgba(5, 5, 5, 0.3) 100%),
-          linear-gradient(to bottom, rgba(5, 5, 5, 0.22), rgba(5, 5, 5, 0.94));
+          linear-gradient(90deg, rgba(5, 5, 5, 0.78) 0%, rgba(5, 5, 5, 0.48) 46%, rgba(5, 5, 5, 0.18) 100%),
+          linear-gradient(to bottom, rgba(5, 5, 5, 0.1), rgba(5, 5, 5, 0.72));
         content: "";
       }
 
@@ -243,13 +287,42 @@
       }
 
       h1 {
-        max-width: 850px;
+        max-width: 920px;
         min-width: 0;
-        font-size: clamp(3.3rem, 8vw, 7.6rem);
+        font-family: "Arial Black", "Aptos Black", "Inter", system-ui, sans-serif;
+        font-size: clamp(3.2rem, 7.6vw, 7.2rem);
         font-weight: 950;
         letter-spacing: 0;
-        line-height: 0.85;
+        line-height: 0.92;
         text-transform: uppercase;
+        word-spacing: 0.08em;
+      }
+
+      .hero-local-badge {
+        display: inline-flex;
+        width: fit-content;
+        max-width: min(100%, 360px);
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.55rem 0.78rem;
+        border: 1px solid rgba(255, 212, 0, 0.22);
+        background: rgba(5, 5, 5, 0.58);
+        box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 0.72rem;
+        font-weight: 900;
+        line-height: 1.25;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-local-badge img {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 0.35rem;
+        object-fit: cover;
+        mix-blend-mode: screen;
+        opacity: 0.82;
       }
 
       .hero-copy {
@@ -338,6 +411,7 @@
       }
 
       h2 {
+        font-family: "Arial Black", "Aptos Black", "Inter", system-ui, sans-serif;
         font-size: clamp(2.15rem, 5vw, 4.4rem);
         font-weight: 950;
         letter-spacing: 0;
@@ -525,7 +599,7 @@
 
       @media (max-width: 900px) {
         .nav {
-          min-height: 84px;
+          min-height: 108px;
           padding: 0.6rem 0;
           align-items: center;
           flex-direction: row;
@@ -575,8 +649,8 @@
 
       @media (max-width: 560px) {
         .brand img {
-          width: 54px;
-          height: 54px;
+          width: min(58vw, 220px);
+          height: auto;
         }
 
         .brand span {
@@ -598,8 +672,9 @@
         }
 
         h1 {
-          font-size: clamp(3rem, 15vw, 4.1rem);
-          line-height: 0.9;
+          font-size: clamp(2.85rem, 14vw, 4rem);
+          line-height: 0.96;
+          word-spacing: 0.04em;
         }
 
         .eyebrow {
@@ -616,6 +691,10 @@
 
         .hero-copy {
           font-size: 0.96rem;
+        }
+
+        .hero-local-badge {
+          max-width: min(100%, 340px);
         }
 
         .hero-actions,
@@ -640,8 +719,7 @@
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="#top" aria-label="Firebitt LLC home">
-          <img src="assets/firebitt-mark.png" alt="Firebitt logo">
-          <span>Firebitt LLC</span>
+          <img src="assets/firebitt-header-logo.png" alt="Firebitt logo">
         </a>
         <div class="nav-links" id="primary-menu">
           <a href="#services">Services</a>
@@ -665,6 +743,10 @@
             and operates throughout the Southeastern United States, supporting
             underground construction projects with expert precision.
           </p>
+          <div class="hero-local-badge">
+            <img src="assets/charlotte-local.png" alt="Charlotte North Carolina">
+            <span>Local Charlotte, North Carolina company</span>
+          </div>
           <div class="hero-actions">
             <a class="button" href="tel:8006782648">Call 800 678 2648</a>
             <a class="button secondary" href="mailto:INFO@Firebitt.com">INFO@Firebitt.com</a>
@@ -825,7 +907,7 @@
             </ul>
           </div>
           <div class="media">
-            <img src="assets/work-vermeer.jpg" alt="Firebitt Vermeer drilling equipment">
+            <img src="assets/safety-worker.jpg" alt="Firebitt safety crew member at utility worksite">
           </div>
         </div>
       </section>
@@ -852,7 +934,6 @@
     <footer>
       <div class="footer-inner">
         <span>© 2026 Firebitt LLC. All rights reserved.</span>
-        <span>Built by SSMK Consulting LLC <span class="yellow">"we think big"</span></span>
       </div>
     </footer>
     <script>
